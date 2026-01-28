@@ -344,13 +344,9 @@ body {
         font-size: 2rem;
     }
 
-    .mission-grid,
+    .themes-grid,
     .activities-grid,
-    .community-map {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info {
+    .areas-map {
         grid-template-columns: 1fr;
     }
 }
