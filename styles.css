@@ -138,7 +138,6 @@ body {
 .about-content {
     max-width: 900px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .lead {
@@ -153,44 +152,54 @@ body {
     font-size: 1.125rem;
     color: var(--text-light);
     line-height: 1.8;
+    margin-bottom: 1rem;
 }
 
-/* ミッションセクション */
-.mission-grid {
+/* 雰囲気セクション */
+.atmosphere-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.atmosphere-content p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* テーマセクション */
+.themes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
 
-.mission-card {
+.theme-card {
     background: white;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    text-align: center;
+    border-top: 4px solid var(--primary-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.mission-card:hover {
+.theme-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.mission-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.mission-card h3 {
+.theme-card h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--text-dark);
 }
 
-.mission-card p {
+.theme-card p {
     color: var(--text-light);
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 /* 活動内容セクション */
@@ -226,21 +235,21 @@ body {
     line-height: 1.7;
 }
 
-/* コミュニティセクション */
-.community-content {
+/* 開催エリアセクション */
+.areas-content {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
-.community-map {
+.areas-map {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
 
-.location-card {
+.area-card {
     background: white;
     padding: 2rem;
     border-radius: 12px;
@@ -248,64 +257,13 @@ body {
     transition: transform 0.3s ease;
 }
 
-.location-card:hover {
+.area-card:hover {
     transform: scale(1.05);
 }
 
-.location-card h4 {
+.area-card h4 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
     color: var(--text-dark);
-}
-
-.location-card p {
-    color: var(--text-light);
-}
-
-/* お問い合わせセクション */
-.contact-content {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-    text-align: left;
-}
-
-.contact-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-}
-
-.contact-item p {
-    color: var(--text-light);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-.contact-item ul {
-    list-style: none;
-}
-
-.contact-item ul li {
-    padding: 0.5rem 0;
-    color: var(--text-light);
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.contact-item ul li:before {
-    content: "\2713";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
 }
 
 /* フッター */
