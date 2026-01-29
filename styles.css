@@ -266,6 +266,26 @@ body {
     color: var(--text-dark);
 }
 
+/* 問い合わせセクション */
+.contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-email {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    display: inline-block;
+    user-select: all;
+    cursor: text;
+    font-family: monospace;
+}
+
 /* フッター */
 .footer {
     background-color: var(--text-dark);
