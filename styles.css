@@ -266,6 +266,75 @@ body {
     color: var(--text-dark);
 }
 
+/* コミュニティセクション */
+.community-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.community-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.community-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.community-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.community-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.community-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.btn-community {
+    background-color: var(--primary-color);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-community:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.badge-coming-soon {
+    display: inline-block;
+    background-color: #fef3c7;
+    color: #92400e;
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
 /* 問い合わせセクション */
 .contact-content {
     max-width: 900px;
@@ -371,7 +440,8 @@ body {
 
     .themes-grid,
     .activities-grid,
-    .areas-map {
+    .areas-map,
+    .community-links {
         grid-template-columns: 1fr;
     }
 }
