@@ -55,6 +55,11 @@ body {
     font-weight: 700;
 }
 
+.nav-brand a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -235,6 +240,106 @@ body {
     line-height: 1.7;
 }
 
+/* 新着コンテンツセクション */
+.contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.content-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.content-card h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.75rem;
+}
+
+.content-card p {
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.btn-content {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-content:hover {
+    background: var(--secondary-color);
+}
+
+/* サブページ共通 */
+.subpage {
+    background-color: var(--bg-light);
+}
+
+.subpage-main {
+    padding: 4rem 0 5rem;
+}
+
+.subpage-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.subpage-header h2 {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.subpage-header p {
+    color: var(--text-light);
+}
+
+.external-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.external-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+.external-card p {
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.external-list {
+    margin: 0 0 1.5rem 1.25rem;
+}
+
+.external-list li {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.subpage-links {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.subpage-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    font-weight: 600;
+}
+
+.subpage-links a:hover {
+    color: var(--secondary-color);
+}
+
 /* 開催エリアセクション */
 .areas-content {
     max-width: 900px;
@@ -371,6 +476,7 @@ body {
 
     .themes-grid,
     .activities-grid,
+    .contents-grid,
     .areas-map {
         grid-template-columns: 1fr;
     }
