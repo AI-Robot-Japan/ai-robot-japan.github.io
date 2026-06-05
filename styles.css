@@ -14,6 +14,8 @@
     --bg-light: #f9fafb;
     --bg-white: #ffffff;
     --border-color: #e5e7eb;
+    --status-upcoming-color: #2563eb;
+    --status-done-color: #4b5563;
 }
 
 html {
@@ -324,11 +326,11 @@ body {
 }
 
 .status-upcoming {
-    background: #2563eb;
+    background: var(--status-upcoming-color);
 }
 
 .status-done {
-    background: #4b5563;
+    background: var(--status-done-color);
 }
 
 .content-card .content-loading {

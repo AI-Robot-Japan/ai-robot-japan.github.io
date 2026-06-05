@@ -239,9 +239,13 @@
         let jsonpCallbackCounter = 0;
 
         function buildFallbackImage(label) {
+            const escapedLabel = String(label)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
             const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
                 <rect width="640" height="360" fill="#e5e7eb"/>
-                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">${label}</text>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">${escapedLabel}</text>
             </svg>`;
             return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
         }
@@ -290,7 +294,7 @@
         function fetchJsonp(url) {
             return new Promise((resolve, reject) => {
                 jsonpCallbackCounter += 1;
-                const callbackName = 'arj_jsonp_' + Date.now() + '_' + jsonpCallbackCounter;
+                const callbackName = 'aiRobotJapan_jsonp_' + Date.now() + '_' + jsonpCallbackCounter;
                 const script = document.createElement('script');
 
                 const cleanup = () => {
@@ -327,13 +331,14 @@
             const events = Array.isArray(data.events) ? data.events : [];
             const parseTime = (value) => {
                 const time = new Date(value).getTime();
-                return Number.isFinite(time) ? time : 0;
+                return Number.isFinite(time) ? time : null;
             };
             return events
+                .filter((event) => parseTime(event.started_at) !== null)
                 .sort((a, b) => parseTime(b.started_at) - parseTime(a.started_at))
                 .slice(0, 3)
                 .map((event) => {
-                const endedAt = event.ended_at || event.started_at;
+                const endedAt = event.ended_at;
                 const isDone = endedAt ? new Date(endedAt).getTime() < Date.now() : false;
 
                 return {
@@ -358,7 +363,7 @@
 
             const showResponse = await fetch(`https://api.spotify.com/v1/shows/${SPOTIFY_SHOW_ID}?market=JP`, {
                 headers: {
-                    Authorization: 'Bearer '.concat(accessToken)
+                    Authorization: ['Bearer', accessToken].join(' ')
                 }
             });
             if (!showResponse.ok) {
