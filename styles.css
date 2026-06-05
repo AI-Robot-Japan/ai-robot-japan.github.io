@@ -251,8 +251,14 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 12px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .content-card h3 {
@@ -263,6 +269,72 @@ body {
 .content-card p {
     color: var(--text-light);
     margin-bottom: 1.25rem;
+}
+
+.content-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.content-item {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.content-item-thumb-wrap {
+    position: relative;
+}
+
+.content-item-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.content-card .content-item-title {
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 0.5rem 0.625rem 0.625rem;
+    margin: 0;
+}
+
+.status-badge {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.15rem 0.5rem;
+    color: #ffffff;
+}
+
+.status-upcoming {
+    background: #2563eb;
+}
+
+.status-done {
+    background: #4b5563;
+}
+
+.content-card .content-loading {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-light);
 }
 
 .btn-content {

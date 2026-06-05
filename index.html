@@ -148,12 +148,18 @@
             <div class="contents-grid">
                 <article class="content-card">
                     <h3><span role="img" aria-label="カレンダー">📅</span> イベント</h3>
-                    <p>connpassで直近の最新イベントや開催予定のイベント（未開催）を確認できます。</p>
+                    <p>connpassの直近3件をサムネイル付きで表示しています。</p>
+                    <div class="content-preview-grid" id="events-preview" aria-live="polite">
+                        <p class="content-loading">イベント情報を読み込み中です…</p>
+                    </div>
                     <a href="/events.html" class="btn btn-content">イベントページを見る</a>
                 </article>
                 <article class="content-card">
                     <h3><span role="img" aria-label="マイク">🎙️</span> Podcast</h3>
-                    <p>Spotifyで配信中の最新エピソードや過去コンテンツをまとめて確認できます。</p>
+                    <p>Spotifyの最新3エピソードをサムネイル付きで表示しています。</p>
+                    <div class="content-preview-grid" id="podcast-preview" aria-live="polite">
+                        <p class="content-loading">Podcast情報を読み込み中です…</p>
+                    </div>
                     <a href="/podcast.html" class="btn btn-content">Podcastページを見る</a>
                 </article>
             </div>
@@ -223,5 +229,176 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function buildFallbackImage(label) {
+            return 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">' +
+                '<rect width="640" height="360" fill="#e5e7eb"/>' +
+                '<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">' + label + '</text>' +
+                '</svg>'
+            );
+        }
+
+        function createContentItem(item, options = {}) {
+            const link = document.createElement('a');
+            link.className = 'content-item';
+            link.href = item.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+
+            const thumbWrap = document.createElement('div');
+            thumbWrap.className = 'content-item-thumb-wrap';
+            const thumb = document.createElement('img');
+            thumb.className = 'content-item-thumb';
+            thumb.src = item.image;
+            thumb.alt = item.title;
+            thumb.loading = 'lazy';
+            thumbWrap.appendChild(thumb);
+
+            if (options.showStatus && item.status) {
+                const status = document.createElement('span');
+                status.className = 'status-badge ' + (item.status === '開催済' ? 'status-done' : 'status-upcoming');
+                status.textContent = item.status;
+                thumbWrap.appendChild(status);
+            }
+
+            const title = document.createElement('p');
+            title.className = 'content-item-title';
+            title.textContent = item.title;
+
+            link.appendChild(thumbWrap);
+            link.appendChild(title);
+
+            return link;
+        }
+
+        function renderError(container, message) {
+            container.innerHTML = '';
+            const text = document.createElement('p');
+            text.className = 'content-loading';
+            text.textContent = message;
+            container.appendChild(text);
+        }
+
+        function fetchJsonp(url) {
+            return new Promise((resolve, reject) => {
+                const callbackName = 'arj_jsonp_' + Date.now() + '_' + Math.floor(Math.random() * 10000);
+                const script = document.createElement('script');
+
+                const cleanup = () => {
+                    if (script.parentNode) {
+                        script.parentNode.removeChild(script);
+                    }
+                    delete window[callbackName];
+                };
+
+                const timeoutId = setTimeout(() => {
+                    cleanup();
+                    reject(new Error('Request timed out'));
+                }, 10000);
+
+                window[callbackName] = (data) => {
+                    clearTimeout(timeoutId);
+                    cleanup();
+                    resolve(data);
+                };
+
+                script.onerror = () => {
+                    clearTimeout(timeoutId);
+                    cleanup();
+                    reject(new Error('JSONP request failed'));
+                };
+
+                script.src = url + (url.includes('?') ? '&' : '?') + 'callback=' + callbackName;
+                document.body.appendChild(script);
+            });
+        }
+
+        async function fetchConnpassEvents() {
+            const data = await fetchJsonp('https://connpass.com/api/v1/event/?nickname=ai-robot-japan&count=20&order=2');
+            const events = Array.isArray(data.events) ? data.events : [];
+            const parseTime = (value) => {
+                const time = new Date(value).getTime();
+                return Number.isFinite(time) ? time : 0;
+            };
+            return events
+                .sort((a, b) => parseTime(b.started_at) - parseTime(a.started_at))
+                .slice(0, 3)
+                .map((event) => {
+                const endedAt = event.ended_at || event.started_at;
+                const isDone = endedAt ? new Date(endedAt).getTime() < Date.now() : false;
+
+                return {
+                    title: event.title || 'connpassイベント',
+                    image: event.image || buildFallbackImage('connpass'),
+                    url: event.event_url || 'https://ai-robot-japan.connpass.com/',
+                    status: isDone ? '開催済' : '開催予定'
+                };
+            });
+        }
+
+        async function fetchPodcastEpisodes() {
+            const tokenResponse = await fetch('https://open.spotify.com/get_access_token?reason=transport&productType=web-player');
+            if (!tokenResponse.ok) {
+                throw new Error('Spotify token request failed');
+            }
+            const tokenData = await tokenResponse.json();
+            const accessToken = tokenData.accessToken;
+            if (!accessToken) {
+                throw new Error('Spotify token not found');
+            }
+
+            const showResponse = await fetch('https://api.spotify.com/v1/shows/3eTibJbIqve5Rne4MkS1Ao?market=JP', {
+                headers: {
+                    Authorization: 'Bearer ' + accessToken
+                }
+            });
+            if (!showResponse.ok) {
+                throw new Error('Spotify API request failed');
+            }
+            const showData = await showResponse.json();
+            const episodes = showData.episodes && Array.isArray(showData.episodes.items) ? showData.episodes.items : [];
+
+            return episodes.slice(0, 3).map((episode) => ({
+                title: episode.name || 'Podcastエピソード',
+                image: episode.images && episode.images[0] ? episode.images[0].url : buildFallbackImage('podcast'),
+                url: episode.external_urls && episode.external_urls.spotify ? episode.external_urls.spotify : 'https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao'
+            }));
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const eventsContainer = document.getElementById('events-preview');
+            const podcastContainer = document.getElementById('podcast-preview');
+
+            try {
+                const events = await fetchConnpassEvents();
+                eventsContainer.innerHTML = '';
+                if (events.length === 0) {
+                    renderError(eventsContainer, 'イベント情報を取得できませんでした。');
+                } else {
+                    events.forEach((event) => {
+                        eventsContainer.appendChild(createContentItem(event, { showStatus: true }));
+                    });
+                }
+            } catch (error) {
+                renderError(eventsContainer, 'イベント情報を取得できませんでした。');
+            }
+
+            try {
+                const episodes = await fetchPodcastEpisodes();
+                podcastContainer.innerHTML = '';
+                if (episodes.length === 0) {
+                    renderError(podcastContainer, 'Podcast情報を取得できませんでした。');
+                } else {
+                    episodes.forEach((episode) => {
+                        podcastContainer.appendChild(createContentItem(episode));
+                    });
+                }
+            } catch (error) {
+                renderError(podcastContainer, 'Podcast情報を取得できませんでした。');
+            }
+        });
+    </script>
 </body>
 </html>
