@@ -573,4 +573,8 @@ body {
         padding: 0.875rem 1rem;
         word-break: break-all;
     }
+
+    .content-preview-grid {
+        grid-template-columns: 1fr;
+    }
 }
