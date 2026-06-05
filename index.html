@@ -344,7 +344,7 @@
                 .slice(0, 3)
                 .map((event) => {
                 const endedAt = event.ended_at;
-                const isDone = endedAt ? new Date(endedAt).getTime() < Date.now() : false;
+                const isDone = endedAt ? Date.now() > new Date(endedAt).getTime() : false;
 
                 return {
                     title: event.title || 'connpassイベント',
@@ -368,7 +368,7 @@
 
             const showResponse = await fetch(`https://api.spotify.com/v1/shows/${SPOTIFY_SHOW_ID}?market=JP`, {
                 headers: {
-                    Authorization: ['Bearer', accessToken].join(' ')
+                    Authorization: 'Bearer ' + accessToken
                 }
             });
             if (!showResponse.ok) {
