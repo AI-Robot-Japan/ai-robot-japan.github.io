@@ -234,17 +234,16 @@
         const REQUEST_TIMEOUT_MS = 10000;
         const CONNPASS_API_URL = 'https://connpass.com/api/v1/event/?nickname=ai-robot-japan&count=20&order=2';
         const SPOTIFY_SHOW_ID = '3eTibJbIqve5Rne4MkS1Ao';
-        const SPOTIFY_SHOW_URL = 'https://open.spotify.com/show/' + SPOTIFY_SHOW_ID;
+        const SPOTIFY_SHOW_URL = `https://open.spotify.com/show/${SPOTIFY_SHOW_ID}`;
         const SPOTIFY_TOKEN_URL = 'https://open.spotify.com/get_access_token?reason=transport&productType=web-player';
         let jsonpCallbackCounter = 0;
 
         function buildFallbackImage(label) {
-            return 'data:image/svg+xml;utf8,' + encodeURIComponent(
-                '<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">' +
-                '<rect width="640" height="360" fill="#e5e7eb"/>' +
-                '<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">' + label + '</text>' +
-                '</svg>'
-            );
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+                <rect width="640" height="360" fill="#e5e7eb"/>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6b7280">${label}</text>
+            </svg>`;
+            return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
         }
 
         function createContentItem(item, options = {}) {
@@ -318,7 +317,7 @@
                     reject(new Error('JSONP request failed'));
                 };
 
-                script.src = url + (url.includes('?') ? '&' : '?') + 'callback=' + callbackName;
+                script.src = `${url}${url.includes('?') ? '&' : '?'}callback=${callbackName}`;
                 document.body.appendChild(script);
             });
         }
@@ -357,9 +356,9 @@
                 throw new Error('Spotify token not found');
             }
 
-            const showResponse = await fetch('https://api.spotify.com/v1/shows/' + SPOTIFY_SHOW_ID + '?market=JP', {
+            const showResponse = await fetch(`https://api.spotify.com/v1/shows/${SPOTIFY_SHOW_ID}?market=JP`, {
                 headers: {
-                    Authorization: 'Bearer ' + accessToken
+                    Authorization: 'Bearer '.concat(accessToken)
                 }
             });
             if (!showResponse.ok) {
