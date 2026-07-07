@@ -479,6 +479,29 @@ body {
     font-size: 0.95rem;
 }
 
+/* 対象領域・開催エリア（活動セクション内） */
+.scope-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.scope-block h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.scope-block p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 2;
+}
+
 /* テーマセクション */
 .themes-list {
     display: flex;
@@ -563,7 +586,7 @@ body {
 /* 参加・問い合わせセクション */
 .join-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
 }
 
@@ -794,6 +817,11 @@ body {
     .theme-row {
         grid-template-columns: 1fr;
         gap: 0.75rem;
+    }
+
+    .scope-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .themes-grid,
