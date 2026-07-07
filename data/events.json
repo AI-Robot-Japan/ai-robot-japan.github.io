@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-07-07T14:49:13+00:00",
+  "total": 4,
+  "events": [
+    {
+      "title": "ロボット実機デモ講習会 〜VLA・強化学習技術の最前線〜",
+      "url": "https://ai-robot-japan.connpass.com/event/392659/",
+      "image": "https://media.connpass.com/thumbs/af/1c/af1c9a499d813f95d7b8d3a0a9df794c.png",
+      "started_at": "2026-06-29T14:00:00+09:00"
+    },
+    {
+      "title": "AIロボット持ち込み勉強会@STATION Ai",
+      "url": "https://ai-robot-japan.connpass.com/event/394626/",
+      "image": "https://media.connpass.com/thumbs/93/08/930854370f7cda358517d57b2cb8ef61.png",
+      "started_at": "2026-06-22T14:00:00+09:00"
+    },
+    {
+      "title": "NVIDIA GTC 2026 Recap",
+      "url": "https://ai-robot-japan.connpass.com/event/388141/",
+      "image": "https://media.connpass.com/thumbs/65/14/6514860950459c1a89fb4a33387ca912.png",
+      "started_at": "2026-03-26T12:00:00+09:00"
+    },
+    {
+      "title": "AIロボット持ち込み勉強会",
+      "url": "https://ai-robot-japan.connpass.com/event/384612/",
+      "image": "https://media.connpass.com/thumbs/8a/99/8a990f802ead6e9cc0baea6b3c6413d7.png",
+      "started_at": "2026-03-16T18:30:00+09:00"
+    }
+  ]
+}

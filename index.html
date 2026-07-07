@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI Robot Japan - AIロボットを核に研究開発から社会実装までを一気通貫で進めるコミュニティ">
+    <meta property="og:title" content="AI Robot Japan - AI Robot Community">
+    <meta property="og:description" content="研究開発から社会実装まで一気通貫。勉強会・ハッカソン・Podcastが一年中動き続ける日本のAIロボットコミュニティ。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ai-robot-japan.org/">
     <title>AI Robot Japan - AI Robot Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -12,17 +19,16 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>AI Robot Japan</h1>
+                <!-- TODO: ロゴ画像が届き次第 <img src="./assets/logo.svg" alt="AI Robot Japan"> に差し替え -->
+                <a href="/index.html"><h1>AI Robot Japan</h1></a>
             </div>
             <ul class="nav-menu">
+                <li><a href="#latest">新着</a></li>
                 <li><a href="#about">概要</a></li>
-                <li><a href="#atmosphere">雰囲気</a></li>
-                <li><a href="#themes">テーマ</a></li>
                 <li><a href="#activities">活動内容</a></li>
                 <li><a href="/events.html">イベント</a></li>
                 <li><a href="/podcast.html">Podcast</a></li>
-                <li><a href="#areas">開催エリア</a></li>
-                <li><a href="#contact">問い合わせ</a></li>
+                <li><a href="#contact" class="nav-cta">参加する</a></li>
             </ul>
         </div>
     </nav>
@@ -31,16 +37,63 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
+                <p class="hero-eyebrow">AI ROBOT COMMUNITY, JAPAN</p>
                 <h2 class="hero-title">AIロボットで未来を創る</h2>
-                <p class="hero-subtitle">研究開発から社会実装まで一気通貫で推進する<br>日本のAIロボットコミュニティ</p>
-                <a href="#about" class="btn btn-primary">詳しく見る</a>
+                <p class="hero-subtitle">研究開発から社会実装までを一気通貫で推進する日本のAIロボットコミュニティ。<br>勉強会・ハッカソン・Podcast・カンファレンス——年に一度ではなく、一年中動き続けています。</p>
+                <div class="hero-actions">
+                    <a href="https://ai-robot-japan.connpass.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">connpassでイベントに参加</a>
+                    <a href="https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Podcastを聴く</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">650<small>+</small></span>
+                    <span class="stat-label">connpassメンバー</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="stat-episodes">11</span>
+                    <span class="stat-label">Podcastエピソード</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4<small>都市</small></span>
+                    <span class="stat-label">開催エリア（予定含む）</span>
+                </div>
             </div>
         </div>
     </header>
 
+    <!-- 新着コンテンツセクション -->
+    <section id="latest" class="section latest">
+        <div class="container">
+            <p class="section-eyebrow">LATEST</p>
+            <h2 class="section-title">新着コンテンツ</h2>
+            <div class="contents-grid">
+                <article class="content-card">
+                    <div class="content-card-header">
+                        <h3>イベント</h3>
+                        <a href="/events.html" class="content-more">すべて見る →</a>
+                    </div>
+                    <div class="content-preview-grid" id="events-preview" aria-live="polite">
+                        <p class="content-loading">イベント情報を読み込み中です…</p>
+                    </div>
+                </article>
+                <article class="content-card">
+                    <div class="content-card-header">
+                        <h3>Podcast</h3>
+                        <a href="/podcast.html" class="content-more">すべて見る →</a>
+                    </div>
+                    <div class="content-preview-grid" id="podcast-preview" aria-live="polite">
+                        <p class="content-loading">Podcast情報を読み込み中です…</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- 概要セクション -->
     <section id="about" class="section about">
         <div class="container">
+            <p class="section-eyebrow">ABOUT</p>
             <h2 class="section-title">AI Robot Japanとは</h2>
             <div class="about-content">
                 <p class="lead">
@@ -65,13 +118,12 @@
     <!-- 雰囲気セクション -->
     <section id="atmosphere" class="section atmosphere">
         <div class="container">
+            <p class="section-eyebrow">CULTURE</p>
             <h2 class="section-title">大事にしている雰囲気</h2>
+            <p class="atmosphere-quote">「つくって動かす」体験から生まれるワクワク感</p>
             <div class="atmosphere-content">
-                <p class="lead">
-                    AI Robot Japanが何より大事にするのは、AIロボットの「つくって動かす」体験から生まれるワクワク感です。
-                </p>
                 <p>
-                    最先端の技術を追うだけでなく、実機・デモ・プロトタイピングといったものづくりを通じて、学びと熱量が自然に循環する場を目指しています。
+                    AI Robot Japanが何より大事にするのは、AIロボットの「つくって動かす」体験から生まれるワクワク感です。最先端の技術を追うだけでなく、実機・デモ・プロトタイピングといったものづくりを通じて、学びと熱量が自然に循環する場を目指しています。
                 </p>
                 <p>
                     また、AIロボットはソフトウェア、ハードウェア、製造、研究、事業など多領域の結節点にあります。だからこそ本コミュニティは、異業種・異分野の人が混ざり合い、偶発的な出会いと交流が生まれる「多様で開かれた場」であることを重視します。
@@ -83,85 +135,88 @@
         </div>
     </section>
 
-    <!-- テーマセクション -->
-    <section id="themes" class="section themes">
-        <div class="container">
-            <h2 class="section-title">取り扱うテーマ例</h2>
-            <div class="themes-grid">
-                <div class="theme-card">
-                    <h3>AI</h3>
-                    <p>模倣学習/強化学習/自己教師あり学習、基盤モデル、マルチモーダル</p>
-                </div>
-                <div class="theme-card">
-                    <h3>自律性</h3>
-                    <p>タスク・モーションプランニング、行動生成、SLAM、ナビゲーション</p>
-                </div>
-                <div class="theme-card">
-                    <h3>制御・実装</h3>
-                    <p>リアルタイム制御、状態推定、シミュレーション（Sim2Real）、デジタルツイン</p>
-                </div>
-                <div class="theme-card">
-                    <h3>開発基盤</h3>
-                    <p>ROS/ROS 2、エッジAI、MLOps/LLMOps、センサフュージョン、安全・信頼性</p>
-                </div>
-                <div class="theme-card">
-                    <h3>産業応用</h3>
-                    <p>製造・物流・点検・医療介護などの現場実装、事業化・規格/標準化動向</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 活動内容セクション -->
     <section id="activities" class="section activities">
         <div class="container">
-            <h2 class="section-title">想定する活動内容</h2>
+            <p class="section-eyebrow">ACTIVITIES</p>
+            <h2 class="section-title">活動内容</h2>
+            <p class="section-note">年次カンファレンスだけではなく、勉強会からPodcastまで、活動は一年を通じて続きます。</p>
             <div class="activities-grid">
                 <div class="activity-card">
-                    <h3><span role="img" aria-label="本">📚</span> 勉強会・ハンズオン</h3>
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H2z"/><path d="M22 4h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/></svg>
+                    </span>
+                    <h3>勉強会・ハンズオン</h3>
                     <p>実機持ち込み、開発環境セットアップ、実装レビューなど、実践的な学びの場を提供します。</p>
                 </div>
                 <div class="activity-card">
-                    <h3><span role="img" aria-label="コンピューター">💻</span> ハッカソン</h3>
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </span>
+                    <h3>ハッカソン</h3>
                     <p>特定テーマでの短期集中開発、デモデイを開催し、アイデアを形にします。</p>
                 </div>
                 <div class="activity-card">
-                    <h3><span role="img" aria-label="マイク">🎤</span> 年次カンファレンス</h3>
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                    </span>
+                    <h3>年次カンファレンス</h3>
                     <p>年1回のカンファレンスで、研究×産業×政策を接続し、技術潮流の整理と共有を行います。</p>
                 </div>
                 <div class="activity-card">
-                    <h3><span role="img" aria-label="ポッドキャスト">🎙️</span> 情報発信</h3>
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>
+                    </span>
+                    <h3>情報発信</h3>
                     <p>ポッドキャスト等で最新のフィジカルAI動向・論文/事例を解説し、情報を発信します。</p>
                 </div>
                 <div class="activity-card">
-                    <h3><span role="img" aria-label="握手">🤝</span> オフライン交流</h3>
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <h3>オフライン交流</h3>
                     <p>領域横断の人材マッチング、共同研究・共同開発の起点づくりを促進します。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 新着コンテンツセクション -->
-    <section id="contents" class="section contents">
+    <!-- テーマセクション -->
+    <section id="themes" class="section themes">
         <div class="container">
-            <h2 class="section-title">新着コンテンツ</h2>
-            <div class="contents-grid">
-                <article class="content-card">
-                    <h3><span role="img" aria-label="カレンダー">📅</span> イベント</h3>
-                    <p>connpassの直近3件をサムネイル付きで表示しています。</p>
-                    <div class="content-preview-grid" id="events-preview" aria-live="polite">
-                        <p class="content-loading">イベント情報を読み込み中です…</p>
+            <p class="section-eyebrow">THEMES</p>
+            <h2 class="section-title">取り扱うテーマ例</h2>
+            <div class="themes-list">
+                <div class="theme-row">
+                    <h3>AI</h3>
+                    <div class="theme-tags">
+                        <span>模倣学習/強化学習/自己教師あり学習</span><span>基盤モデル</span><span>マルチモーダル</span>
                     </div>
-                    <a href="/events.html" class="btn btn-content">イベントページを見る</a>
-                </article>
-                <article class="content-card">
-                    <h3><span role="img" aria-label="マイク">🎙️</span> Podcast</h3>
-                    <p>Spotifyの最新3エピソードをサムネイル付きで表示しています。</p>
-                    <div class="content-preview-grid" id="podcast-preview" aria-live="polite">
-                        <p class="content-loading">Podcast情報を読み込み中です…</p>
+                </div>
+                <div class="theme-row">
+                    <h3>自律性</h3>
+                    <div class="theme-tags">
+                        <span>タスク・モーションプランニング</span><span>行動生成</span><span>SLAM</span><span>ナビゲーション</span>
                     </div>
-                    <a href="/podcast.html" class="btn btn-content">Podcastページを見る</a>
-                </article>
+                </div>
+                <div class="theme-row">
+                    <h3>制御・実装</h3>
+                    <div class="theme-tags">
+                        <span>リアルタイム制御</span><span>状態推定</span><span>シミュレーション（Sim2Real）</span><span>デジタルツイン</span>
+                    </div>
+                </div>
+                <div class="theme-row">
+                    <h3>開発基盤</h3>
+                    <div class="theme-tags">
+                        <span>ROS/ROS 2</span><span>エッジAI</span><span>MLOps/LLMOps</span><span>センサフュージョン</span><span>安全・信頼性</span>
+                    </div>
+                </div>
+                <div class="theme-row">
+                    <h3>産業応用</h3>
+                    <div class="theme-tags">
+                        <span>製造・物流・点検・医療介護などの現場実装</span><span>事業化・規格/標準化動向</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -169,6 +224,7 @@
     <!-- 開催エリアセクション -->
     <section id="areas" class="section areas">
         <div class="container">
+            <p class="section-eyebrow">AREAS</p>
             <h2 class="section-title">開催エリア</h2>
             <div class="areas-content">
                 <p class="lead">
@@ -192,12 +248,27 @@
         </div>
     </section>
 
-    <!-- 問い合わせセクション -->
+    <!-- 参加・問い合わせセクション -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title">問い合わせ</h2>
-            <div class="contact-content">
-                <p class="contact-email">hello@ai-robot-japan.org</p>
+            <p class="section-eyebrow">JOIN US</p>
+            <h2 class="section-title">参加する</h2>
+            <div class="join-grid">
+                <div class="join-card">
+                    <h3>イベントに参加</h3>
+                    <p>connpassグループに参加すると、勉強会・ハッカソンの募集通知が届きます。</p>
+                    <a href="https://ai-robot-japan.connpass.com/" target="_blank" rel="noopener noreferrer" class="btn btn-content">connpassを開く</a>
+                </div>
+                <div class="join-card">
+                    <h3>Podcastをフォロー</h3>
+                    <p>最新のフィジカルAI動向・論文/事例の解説をSpotifyで配信しています。</p>
+                    <a href="https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao" target="_blank" rel="noopener noreferrer" class="btn btn-content">Spotifyで聴く</a>
+                </div>
+                <div class="join-card">
+                    <h3>問い合わせ</h3>
+                    <p>協業・登壇・スポンサー等のご相談はメールでお気軽にどうぞ。</p>
+                    <p class="contact-email">hello@ai-robot-japan.org</p>
+                </div>
             </div>
         </div>
     </section>
@@ -213,14 +284,20 @@
                 <div class="footer-section">
                     <h4>リンク</h4>
                     <ul>
+                        <li><a href="#latest">新着</a></li>
                         <li><a href="#about">概要</a></li>
                         <li><a href="#atmosphere">雰囲気</a></li>
-                        <li><a href="#themes">テーマ</a></li>
                         <li><a href="#activities">活動内容</a></li>
+                        <li><a href="#themes">テーマ</a></li>
+                        <li><a href="#areas">開催エリア</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>コンテンツ</h4>
+                    <ul>
                         <li><a href="/events.html">イベント</a></li>
                         <li><a href="/podcast.html">Podcast</a></li>
-                        <li><a href="#areas">開催エリア</a></li>
-                        <li><a href="#contact">問い合わせ</a></li>
+                        <li><a href="#contact">参加する・問い合わせ</a></li>
                     </ul>
                 </div>
             </div>
@@ -231,12 +308,8 @@
     </footer>
 
     <script>
-        const REQUEST_TIMEOUT_MS = 10000;
-        const CONNPASS_API_URL = 'https://connpass.com/api/v1/event/?nickname=ai-robot-japan&count=20&order=2';
-        const SPOTIFY_SHOW_ID = '3eTibJbIqve5Rne4MkS1Ao';
-        const SPOTIFY_SHOW_URL = `https://open.spotify.com/show/${SPOTIFY_SHOW_ID}`;
-        const SPOTIFY_TOKEN_URL = 'https://open.spotify.com/get_access_token?reason=transport&productType=web-player';
-        let jsonpCallbackCounter = 0;
+        const EVENTS_JSON_URL = './data/events.json';
+        const PODCAST_JSON_URL = './data/podcast.json';
 
         function buildFallbackImage(label) {
             const escapedLabel = String(label)
@@ -293,95 +366,50 @@
             container.appendChild(text);
         }
 
-        function fetchJsonp(url) {
-            return new Promise((resolve, reject) => {
-                jsonpCallbackCounter += 1;
-                const randomSuffix = window.crypto && window.crypto.getRandomValues
-                    ? window.crypto.getRandomValues(new Uint32Array(1))[0].toString(36)
-                    : Date.now().toString(36);
-                const callbackName = 'aiRobotJapan_jsonp_' + randomSuffix + '_' + jsonpCallbackCounter;
-                const script = document.createElement('script');
-
-                const cleanup = () => {
-                    if (script.parentNode) {
-                        script.parentNode.removeChild(script);
-                    }
-                    delete window[callbackName];
-                };
-
-                const timeoutId = setTimeout(() => {
-                    cleanup();
-                    reject(new Error('Request timed out'));
-                }, REQUEST_TIMEOUT_MS);
-
-                window[callbackName] = (data) => {
-                    clearTimeout(timeoutId);
-                    cleanup();
-                    resolve(data);
-                };
-
-                script.onerror = () => {
-                    clearTimeout(timeoutId);
-                    cleanup();
-                    reject(new Error('JSONP request failed'));
-                };
-
-                script.src = `${url}${url.includes('?') ? '&' : '?'}callback=${encodeURIComponent(callbackName)}`;
-                document.body.appendChild(script);
-            });
+        async function loadJson(url) {
+            const response = await fetch(url, { cache: 'no-cache' });
+            if (!response.ok) {
+                throw new Error(`Failed to load ${url}: ${response.status}`);
+            }
+            return response.json();
         }
 
-        async function fetchConnpassEvents() {
-            const data = await fetchJsonp(CONNPASS_API_URL);
-            const events = Array.isArray(data.events) ? data.events : [];
-            const parseTime = (value) => {
-                const time = new Date(value).getTime();
-                return Number.isFinite(time) ? time : null;
-            };
-            return events
-                .filter((event) => parseTime(event.started_at) !== null)
-                .sort((a, b) => parseTime(b.started_at) - parseTime(a.started_at))
-                .slice(0, 3)
-                .map((event) => {
-                const endedAt = event.ended_at;
-                const isDone = endedAt ? Date.now() > new Date(endedAt).getTime() : false;
-
-                return {
-                    title: event.title || 'connpassイベント',
-                    image: event.image || buildFallbackImage('connpass'),
-                    url: event.event_url || 'https://ai-robot-japan.connpass.com/',
-                    status: isDone ? '開催済' : '開催予定'
-                };
-            });
-        }
-
-        async function fetchPodcastEpisodes() {
-            const tokenResponse = await fetch(SPOTIFY_TOKEN_URL);
-            if (!tokenResponse.ok) {
-                throw new Error('Spotify token request failed');
-            }
-            const tokenData = await tokenResponse.json();
-            const accessToken = tokenData.accessToken;
-            if (!accessToken) {
-                throw new Error('Spotify token not found');
-            }
-
-            const showResponse = await fetch(`https://api.spotify.com/v1/shows/${SPOTIFY_SHOW_ID}?market=JP`, {
-                headers: {
-                    Authorization: 'Bearer ' + accessToken
-                }
-            });
-            if (!showResponse.ok) {
-                throw new Error('Spotify API request failed');
-            }
-            const showData = await showResponse.json();
-            const episodes = showData.episodes && Array.isArray(showData.episodes.items) ? showData.episodes.items : [];
-
-            return episodes.slice(0, 3).map((episode) => ({
-                title: episode.name || 'Podcastエピソード',
-                image: episode.images && episode.images[0] ? episode.images[0].url : buildFallbackImage('podcast'),
-                url: episode.external_urls && episode.external_urls.spotify ? episode.external_urls.spotify : SPOTIFY_SHOW_URL
+        async function renderEvents(container) {
+            const data = await loadJson(EVENTS_JSON_URL);
+            const events = (Array.isArray(data.events) ? data.events : []).slice(0, 3).map((event) => ({
+                title: event.title || 'connpassイベント',
+                image: event.image || buildFallbackImage('connpass'),
+                url: event.url || 'https://ai-robot-japan.connpass.com/',
+                status: event.started_at && new Date(event.started_at).getTime() > Date.now() ? '開催予定' : '開催済'
             }));
+            if (events.length === 0) {
+                throw new Error('No events');
+            }
+            container.innerHTML = '';
+            events.forEach((event) => {
+                container.appendChild(createContentItem(event, { showStatus: true }));
+            });
+        }
+
+        async function renderPodcast(container) {
+            const data = await loadJson(PODCAST_JSON_URL);
+            const episodes = (Array.isArray(data.episodes) ? data.episodes : []).slice(0, 3).map((episode) => ({
+                title: episode.title || 'Podcastエピソード',
+                image: episode.image || buildFallbackImage('podcast'),
+                url: episode.url || 'https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao'
+            }));
+            if (episodes.length === 0) {
+                throw new Error('No episodes');
+            }
+            container.innerHTML = '';
+            episodes.forEach((episode) => {
+                container.appendChild(createContentItem(episode));
+            });
+
+            const statEpisodes = document.getElementById('stat-episodes');
+            if (statEpisodes && Number.isFinite(data.total)) {
+                statEpisodes.textContent = data.total;
+            }
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
@@ -389,29 +417,13 @@
             const podcastContainer = document.getElementById('podcast-preview');
 
             try {
-                const events = await fetchConnpassEvents();
-                eventsContainer.innerHTML = '';
-                if (events.length === 0) {
-                    renderError(eventsContainer, 'イベント情報を取得できませんでした。');
-                } else {
-                    events.forEach((event) => {
-                        eventsContainer.appendChild(createContentItem(event, { showStatus: true }));
-                    });
-                }
+                await renderEvents(eventsContainer);
             } catch (error) {
                 renderError(eventsContainer, 'イベント情報を取得できませんでした。');
             }
 
             try {
-                const episodes = await fetchPodcastEpisodes();
-                podcastContainer.innerHTML = '';
-                if (episodes.length === 0) {
-                    renderError(podcastContainer, 'Podcast情報を取得できませんでした。');
-                } else {
-                    episodes.forEach((episode) => {
-                        podcastContainer.appendChild(createContentItem(episode));
-                    });
-                }
+                await renderPodcast(podcastContainer);
             } catch (error) {
                 renderError(podcastContainer, 'Podcast情報を取得できませんでした。');
             }
