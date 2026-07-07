@@ -614,16 +614,27 @@ body {
     flex-grow: 1;
 }
 
+.join-card .btn {
+    align-self: stretch;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .contact-email {
-    font-size: 1.05rem;
+    align-self: stretch;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--ink-900);
     background-color: var(--bg-light);
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
-    display: inline-block;
+    display: block;
+    text-align: center;
     user-select: all;
     cursor: text;
+    word-break: break-all;
     font-family: "SF Mono", Menlo, Consolas, monospace;
 }
 
