@@ -428,6 +428,57 @@ body {
     margin-bottom: 1.25rem;
 }
 
+/* CULTUREセクションの写真ギャラリー（無限横スクロール） */
+.culture-marquee {
+    margin-top: 3rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.culture-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: culture-scroll 45s linear infinite;
+}
+
+.culture-marquee:hover .culture-marquee-track {
+    animation-play-state: paused;
+}
+
+.culture-marquee-track img {
+    height: 200px;
+    width: auto;
+    margin-right: 1rem;
+    flex: none;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: block;
+}
+
+@keyframes culture-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .culture-marquee-track {
+        animation: none;
+    }
+    .culture-marquee {
+        overflow-x: auto;
+    }
+}
+
+.culture-gallery-note {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-on-dark);
+    opacity: 0.75;
+}
+
 /* 活動内容セクション */
 .activities-grid {
     display: grid;
@@ -614,16 +665,27 @@ body {
     flex-grow: 1;
 }
 
+.join-card .btn {
+    align-self: stretch;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .contact-email {
-    font-size: 1.05rem;
+    align-self: stretch;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--ink-900);
     background-color: var(--bg-light);
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
-    display: inline-block;
+    display: block;
+    text-align: center;
     user-select: all;
     cursor: text;
+    word-break: break-all;
     font-family: "SF Mono", Menlo, Consolas, monospace;
 }
 
