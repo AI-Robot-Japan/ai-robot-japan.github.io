@@ -91,9 +91,14 @@ def fetch_podcast():
     with urllib.request.urlopen(req, timeout=30) as res:
         token = json.load(res)["access_token"]
 
+    auth_headers = {"Authorization": f"Bearer {token}"}
     show = json.loads(http_get(
         f"https://api.spotify.com/v1/shows/{SPOTIFY_SHOW_ID}?market=JP",
-        headers={"Authorization": f"Bearer {token}"},
+        headers=auth_headers,
+    ))
+    episodes_page = json.loads(http_get(
+        f"https://api.spotify.com/v1/shows/{SPOTIFY_SHOW_ID}/episodes?market=JP&limit=10",
+        headers=auth_headers,
     ))
     episodes = [
         {
@@ -102,11 +107,15 @@ def fetch_podcast():
             "image": (ep.get("images") or [{}])[0].get("url"),
             "release_date": ep.get("release_date"),
         }
-        for ep in (show.get("episodes") or {}).get("items", [])
+        for ep in episodes_page.get("items", [])
+        if ep
     ]
+    if not episodes:
+        # 空リストで既存JSONを上書きしない（トップページの表示が消えるため）
+        raise RuntimeError("Spotify APIからエピソードを取得できませんでした")
     return {
         "generated_at": now_iso(),
-        "total": show.get("total_episodes"),
+        "total": show.get("total_episodes") or episodes_page.get("total"),
         "episodes": episodes,
     }
 
