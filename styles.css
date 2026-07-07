@@ -428,6 +428,33 @@ body {
     margin-bottom: 1.25rem;
 }
 
+/* CULTUREセクションの写真ギャラリー */
+.culture-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.culture-gallery img {
+    height: 200px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: block;
+}
+
+.culture-gallery-note {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-on-dark);
+    opacity: 0.75;
+}
+
 /* 活動内容セクション */
 .activities-grid {
     display: grid;
