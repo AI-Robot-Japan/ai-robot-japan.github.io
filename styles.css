@@ -872,6 +872,48 @@ body {
     margin-bottom: 1.5rem;
 }
 
+/* 募集バナー（トップページ最下部） */
+.recruit-banner {
+    background:
+        radial-gradient(ellipse 60% 120% at 15% 0%, rgba(255, 245, 193, 0.18), transparent),
+        linear-gradient(120deg, var(--accent) 0%, var(--accent-strong) 100%);
+    color: #ffffff;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.recruit-banner-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0.75rem;
+}
+
+.recruit-banner h2 {
+    font-size: 1.9rem;
+    font-weight: 900;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.recruit-banner-lead {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.9;
+}
+
+.recruit-banner-btn {
+    background: #ffffff;
+    color: var(--accent-strong);
+}
+
+.recruit-banner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
 /* フッター */
 .footer {
     background-color: var(--ink-950);
