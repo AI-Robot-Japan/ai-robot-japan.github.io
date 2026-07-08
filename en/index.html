@@ -9,9 +9,9 @@
                 var s = localStorage.getItem('arj-lang');
                 var wantEn = s ? s === 'en' : (navigator.language || '').toLowerCase().indexOf('ja') !== 0;
                 if (wantEn && !onEn) {
-                    location.replace((p === '/' || p === '' ? '/en/index.html' : '/en' + p) + location.search + location.hash);
+                    location.replace((p === '/' || p === '' ? '/en/' : '/en' + p) + location.search + location.hash);
                 } else if (!wantEn && onEn) {
-                    var t = p.replace(/^\/en/, ''); if (t === '' || t === '/') t = '/index.html';
+                    var t = p.replace(/^\/en/, ''); if (t === '' || t === '/') t = '/';
                     location.replace(t + location.search + location.hash);
                 }
             } catch (e) {}
@@ -22,13 +22,13 @@
     <meta property="og:title" content="AI Robot Japan - AI Robot Community">
     <meta property="og:description" content="A community of AI-robotics practitioners in Japan, driving everything from R&D to real-world deployment. Study sessions, hackathons, conferences, and a podcast, year-round.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ai-robot-japan.org/en/index.html">
+    <meta property="og:url" content="https://ai-robot-japan.org/en/">
     <meta property="og:image" content="https://ai-robot-japan.org/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#d5191f">
-    <link rel="alternate" hreflang="ja" href="https://ai-robot-japan.org/index.html">
-    <link rel="alternate" hreflang="en" href="https://ai-robot-japan.org/en/index.html">
-    <link rel="alternate" hreflang="x-default" href="https://ai-robot-japan.org/index.html">
+    <link rel="alternate" hreflang="ja" href="https://ai-robot-japan.org/">
+    <link rel="alternate" hreflang="en" href="https://ai-robot-japan.org/en/">
+    <link rel="alternate" hreflang="x-default" href="https://ai-robot-japan.org/">
     <title>AI Robot Japan - AI Robot Community</title>
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -42,7 +42,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="/en/index.html"><img class="nav-logo" src="/assets/logo-horizontal.png" alt="AI Robot Japan"></a>
+                <a href="/en/"><img class="nav-logo" src="/assets/logo-horizontal.png" alt="AI Robot Japan"></a>
             </div>
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span><span></span><span></span>
@@ -55,7 +55,7 @@
                 <li><a href="https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao" target="_blank" rel="noopener noreferrer">Podcast</a></li>
                 <li><a href="/en/recruit.html">Recruit</a></li>
                 <li><a href="#contact" class="nav-cta">Join</a></li>
-                <li><a href="/index.html" class="nav-lang" onclick="localStorage.setItem('arj-lang','ja')">日本語</a></li>
+                <li><a href="/" class="nav-lang" onclick="localStorage.setItem('arj-lang','ja')">日本語</a></li>
             </ul>
         </div>
     </nav>
