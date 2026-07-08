@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css?v=9">
+    <link rel="stylesheet" href="./styles.css?v=11">
 </head>
 <body>
     <!-- ナビゲーション -->
@@ -44,7 +44,10 @@
             <div class="nav-brand">
                 <a href="/index.html"><img class="nav-logo" src="./assets/logo-horizontal.png" alt="AI Robot Japan"></a>
             </div>
-            <ul class="nav-menu">
+            <button class="nav-toggle" type="button" aria-label="メニューを開閉" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="/index.html#latest">新着</a></li>
                 <li><a href="/index.html#about">概要</a></li>
                 <li><a href="/index.html#activities">活動</a></li>
@@ -219,5 +222,22 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var navbar = document.querySelector('.navbar');
+            if (!toggle || !navbar) return;
+            toggle.addEventListener('click', function () {
+                var open = navbar.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            navbar.querySelectorAll('.nav-menu a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    navbar.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
