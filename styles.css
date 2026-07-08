@@ -103,6 +103,21 @@ body {
     color: #ffffff;
 }
 
+.nav-menu a.nav-lang {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.03em;
+}
+
+.nav-menu a.nav-lang:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 /* ヒーローセクション */
 .hero {
     background:
