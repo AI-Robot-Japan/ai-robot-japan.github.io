@@ -118,6 +118,41 @@ body {
     border-color: var(--accent);
 }
 
+/* ハンバーガーボタン（モバイルのみ表示） */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--text-dark);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.navbar.nav-open .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar.nav-open .nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.nav-open .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ヒーローセクション */
 .hero {
     background:
@@ -1005,10 +1040,44 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
+    .navbar .container {
         flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-basis: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .navbar.nav-open .nav-menu {
+        display: flex;
+        padding-top: 0.5rem;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 0.85rem 0.25rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .nav-menu a.nav-cta,
+    .nav-menu a.nav-lang {
+        display: inline-block;
+        width: auto;
+        margin: 0.6rem 0.25rem 0;
+        border-top: 0;
     }
 
     .nav-logo {
@@ -1080,11 +1149,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .navbar .container {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
     .hero-actions .btn {
         width: 100%;
         text-align: center;
