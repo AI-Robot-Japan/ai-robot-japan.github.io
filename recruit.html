@@ -2,6 +2,21 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                var p = location.pathname, onEn = /^\/en(\/|$)/.test(p);
+                var s = localStorage.getItem('arj-lang');
+                var wantEn = s ? s === 'en' : (navigator.language || '').toLowerCase().indexOf('ja') !== 0;
+                if (wantEn && !onEn) {
+                    location.replace((p === '/' || p === '' ? '/en/index.html' : '/en' + p) + location.search + location.hash);
+                } else if (!wantEn && onEn) {
+                    var t = p.replace(/^\/en/, ''); if (t === '' || t === '/') t = '/index.html';
+                    location.replace(t + location.search + location.hash);
+                }
+            } catch (e) {}
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI Robot Japan の募集ページ。登壇・実機デモ、会場提供、共催・協賛、運営スタッフを募集しています。">
     <meta property="og:title" content="募集 | AI Robot Japan">
@@ -11,13 +26,16 @@
     <meta property="og:image" content="https://ai-robot-japan.org/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#d5191f">
+    <link rel="alternate" hreflang="ja" href="https://ai-robot-japan.org/recruit.html">
+    <link rel="alternate" hreflang="en" href="https://ai-robot-japan.org/en/recruit.html">
+    <link rel="alternate" hreflang="x-default" href="https://ai-robot-japan.org/recruit.html">
     <title>募集 | AI Robot Japan</title>
     <link rel="icon" type="image/png" href="./assets/favicon.png">
     <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css?v=8">
+    <link rel="stylesheet" href="./styles.css?v=9">
 </head>
 <body>
     <!-- ナビゲーション -->
@@ -33,6 +51,7 @@
                 <li><a href="https://ai-robot-japan.connpass.com/" target="_blank" rel="noopener noreferrer">イベント</a></li>
                 <li><a href="https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao" target="_blank" rel="noopener noreferrer">Podcast</a></li>
                 <li><a href="/recruit.html" class="nav-cta">募集</a></li>
+                <li><a href="/en/recruit.html" class="nav-lang" onclick="localStorage.setItem('arj-lang','en')">EN</a></li>
             </ul>
         </div>
     </nav>
