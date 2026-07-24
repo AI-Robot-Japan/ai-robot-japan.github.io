@@ -964,6 +964,89 @@ body {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
+/* プライバシーポリシー等の法務ページ */
+.legal-content {
+    max-width: 800px;
+}
+
+.legal-content p {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    line-height: 2.1;
+    margin-bottom: 1.75rem;
+}
+
+.legal-content h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 3rem 0 1.25rem;
+    padding-left: 0.9rem;
+    border-left: 4px solid var(--accent);
+}
+
+.legal-content ol {
+    list-style: none;
+    margin: 0 0 1.75rem;
+}
+
+.legal-content ol li {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    line-height: 2.1;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2.4em;
+}
+
+.legal-content .num-list {
+    counter-reset: num;
+}
+
+.legal-content .num-list > li::before {
+    counter-increment: num;
+    content: counter(num) ".";
+    position: absolute;
+    left: 0.5em;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.legal-content .paren-list {
+    counter-reset: paren;
+}
+
+.legal-content .paren-list > li::before {
+    counter-increment: paren;
+    content: "(" counter(paren) ")";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.legal-content li .paren-list {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.legal-date {
+    margin-top: 3rem;
+    text-align: right;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.footer-bottom a {
+    color: #94a1a8;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 /* フッター */
 .footer {
     background-color: var(--ink-950);
