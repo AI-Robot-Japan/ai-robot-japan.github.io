@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                var p = location.pathname, onEn = /^\/en(\/|$)/.test(p);
+                var s = localStorage.getItem('arj-lang');
+                var wantEn = s ? s === 'en' : (navigator.language || '').toLowerCase().indexOf('ja') !== 0;
+                if (wantEn && !onEn) {
+                    location.replace((p === '/' || p === '' ? '/en/' : '/en' + p) + location.search + location.hash);
+                } else if (!wantEn && onEn) {
+                    var t = p.replace(/^\/en/, ''); if (t === '' || t === '/') t = '/';
+                    location.replace(t + location.search + location.hash);
+                }
+            } catch (e) {}
+        })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get involved with AI Robot Japan — talks and live demos, hosting a venue, co-hosting & sponsorship, and joining the organizing team.">
+    <meta property="og:title" content="Recruit | AI Robot Japan">
+    <meta property="og:description" content="We are looking for members and partners to build AI Robot Japan with us: talks and live demos, venues, co-hosting & sponsorship, and organizers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ai-robot-japan.org/en/recruit/">
+    <meta property="og:image" content="https://ai-robot-japan.org/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#d5191f">
+    <link rel="alternate" hreflang="ja" href="https://ai-robot-japan.org/recruit/">
+    <link rel="alternate" hreflang="en" href="https://ai-robot-japan.org/en/recruit/">
+    <link rel="alternate" hreflang="x-default" href="https://ai-robot-japan.org/recruit/">
+    <title>Recruit | AI Robot Japan</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=15">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/en/"><img class="nav-logo" src="/assets/logo-horizontal.png" alt="AI Robot Japan"></a>
+            </div>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/en/#latest">Latest</a></li>
+                <li><a href="/en/#about">About</a></li>
+                <li><a href="/en/#activities">Activities</a></li>
+                <li><a href="https://ai-robot-japan.connpass.com/" target="_blank" rel="noopener noreferrer">Events</a></li>
+                <li><a href="https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao" target="_blank" rel="noopener noreferrer">Podcast</a></li>
+                <li><a href="/en/recruit/" class="nav-cta">Recruit</a></li>
+                <li><a href="/recruit/" class="nav-lang" onclick="localStorage.setItem('arj-lang','ja')">日本語</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page header -->
+    <header class="page-hero">
+        <div class="container">
+            <p class="hero-eyebrow">JOIN &amp; CONTRIBUTE</p>
+            <h1 class="page-hero-title">We are looking for people <br class="sp-only">to build this with us</h1>
+            <p class="page-hero-lead">AI Robot Japan is looking for members and partners who want to help build the community, not just take part. There are many ways to get involved — giving talks and live demos, hosting a venue, sponsoring, or organizing. Reach out anytime.</p>
+            <a href="#apply" class="btn btn-primary">Get in touch</a>
+        </div>
+    </header>
+
+    <!-- Roles -->
+    <section class="section recruit">
+        <div class="container">
+            <p class="section-eyebrow">OPPORTUNITIES</p>
+            <h2 class="section-title">Open roles</h2>
+            <div class="recruit-grid">
+                <article class="recruit-card">
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+                    </span>
+                    <h3>Talks, LTs &amp; live demos</h3>
+                    <p class="recruit-for"><span>WHO IT'S FOR</span>Anyone who wants to share R&amp;D insights, or bring their own machine or product to show. Stories about implementation struggles and lightning talks are very welcome.</p>
+                    <p class="recruit-get"><span>WHAT YOU CAN DO</span>Present at study sessions and conferences, exhibit live demos, and share knowledge with the community.</p>
+                    <a href="mailto:hello@ai-robot-japan.org?subject=%5BTalk%2FDemo%20application%5D" class="btn btn-content">Get in touch</a>
+                </article>
+                <article class="recruit-card">
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+                    </span>
+                    <h3>Host a venue</h3>
+                    <p class="recruit-for"><span>WHO IT'S FOR</span>Companies and organizations with space for study sessions or hackathons. Beyond Tokyo — we are planning events nationwide.</p>
+                    <p class="recruit-get"><span>WHAT YOU CAN DO</span>Co-hosting credit, hosting a tech community at your site, and connecting with participants.</p>
+                    <a href="mailto:hello@ai-robot-japan.org?subject=%5BVenue%20inquiry%5D" class="btn btn-content">Discuss a venue</a>
+                </article>
+                <article class="recruit-card">
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </span>
+                    <h3>Co-hosting &amp; sponsorship</h3>
+                    <p class="recruit-for"><span>WHO IT'S FOR</span>Companies that want to support the community and are interested in visibility and recruiting touchpoints in physical AI.</p>
+                    <p class="recruit-get"><span>WHAT YOU CAN DO</span>Logo placement at events and on the site, speaking slots, reach to participants, and recruiting or joint-development touchpoints.</p>
+                    <a href="mailto:hello@ai-robot-japan.org?subject=%5BSponsorship%20inquiry%5D" class="btn btn-content">Discuss sponsorship</a>
+                </article>
+                <article class="recruit-card">
+                    <span class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <h3>Organizing team</h3>
+                    <p class="recruit-for"><span>WHO IT'S FOR</span>People who want to help plan, run, and share our activities — and shape the community itself.</p>
+                    <p class="recruit-get"><span>WHAT YOU CAN DO</span>Event planning and operations, podcast and social outreach, and working as a core member of the community.</p>
+                    <a href="https://discord.gg/pjjQ46tyy" target="_blank" rel="noopener noreferrer" class="btn btn-content">Join organizing on Discord</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow -->
+    <section class="section recruit-flow">
+        <div class="container">
+            <p class="section-eyebrow">FLOW</p>
+            <h2 class="section-title">How to apply</h2>
+            <ol class="flow-steps">
+                <li>
+                    <span class="flow-num">1</span>
+                    <h3>Get in touch</h3>
+                    <p>Let us know which role interests you, by email or on Discord. Your idea doesn't need to be fully formed.</p>
+                </li>
+                <li>
+                    <span class="flow-num">2</span>
+                    <h3>Align with organizers</h3>
+                    <p>We work out the theme, schedule, talk content, and terms together with the organizing team.</p>
+                </li>
+                <li>
+                    <span class="flow-num">3</span>
+                    <h3>Prepare</h3>
+                    <p>We prepare announcements, materials, and equipment together, and support you where needed.</p>
+                </li>
+                <li>
+                    <span class="flow-num">4</span>
+                    <h3>Host or take part</h3>
+                    <p>Run the event, or start your work as an organizer or partner.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section recruit-faq">
+        <div class="container">
+            <p class="section-eyebrow">FAQ</p>
+            <h2 class="section-title">Frequently asked questions</h2>
+            <div class="faq-list">
+                <details>
+                    <summary>Can beginners give talks?</summary>
+                    <p>Yes. Beyond cutting-edge research, we welcome stories of implementation struggles, experiments you've tried, and short lightning talks. Sharing the process of building and running is exactly what we value.</p>
+                </details>
+                <details>
+                    <summary>Can individuals and companies both apply?</summary>
+                    <p>Both are welcome — from individual talks and participation to corporate venue hosting and sponsorship. Reach out about whatever fits your involvement.</p>
+                </details>
+                <details>
+                    <summary>Are there any costs?</summary>
+                    <p>Speaking, attending, and joining the organizing team are free. For co-hosting and sponsorship, let's discuss the details case by case.</p>
+                </details>
+                <details>
+                    <summary>Can you hold events outside Tokyo?</summary>
+                    <p>Yes. With a venue, we are planning events nationwide, including Osaka, Kyoto, and Nagoya. We welcome inquiries about hosting in your region.</p>
+                </details>
+                <details>
+                    <summary>Can I join online?</summary>
+                    <p>Because we emphasize hands-on demos, events are mainly in person, but we also consider online or hybrid formats for some. Just ask.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get in touch -->
+    <section id="apply" class="section recruit-cta">
+        <div class="container">
+            <p class="section-eyebrow">GET IN TOUCH</p>
+            <h2 class="section-title">Get in touch</h2>
+            <p class="recruit-cta-lead">Reach out anytime. We welcome inquiries even when your plans aren't fully decided yet.</p>
+            <!-- TODO: When a Google Form is ready, add <a href="FORM_URL" class="btn btn-primary">Open the application form</a> here and swap out the mail/Discord actions if needed -->
+            <div class="recruit-cta-actions">
+                <a href="https://discord.gg/pjjQ46tyy" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ask on Discord</a>
+                <a href="mailto:hello@ai-robot-japan.org?subject=%5BRecruit%20inquiry%5D" class="btn btn-ghost">Email us</a>
+            </div>
+            <p class="contact-email">hello@ai-robot-japan.org</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI Robot Japan</h3>
+                    <p>An AI robotics community</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="/en/#latest">Latest</a></li>
+                        <li><a href="/en/#about">About</a></li>
+                        <li><a href="/en/#atmosphere">What we value</a></li>
+                        <li><a href="/en/#activities">Activities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Content</h4>
+                    <ul>
+                        <li><a href="https://discord.gg/pjjQ46tyy" target="_blank" rel="noopener noreferrer">Discord</a></li>
+                        <li><a href="https://ai-robot-japan.connpass.com/" target="_blank" rel="noopener noreferrer">Events</a></li>
+                        <li><a href="https://open.spotify.com/show/3eTibJbIqve5Rne4MkS1Ao" target="_blank" rel="noopener noreferrer">Podcast</a></li>
+                        <li><a href="https://x.com/AIRobotJapan" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                        <li><a href="/en/recruit/">Recruit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p><a href="/privacy/">Privacy Policy</a></p>
+                <p>&copy; 2026 AI Robot Japan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            var toggle = document.querySelector('.nav-toggle');
+            var navbar = document.querySelector('.navbar');
+            if (!toggle || !navbar) return;
+            toggle.addEventListener('click', function () {
+                var open = navbar.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            navbar.querySelectorAll('.nav-menu a').forEach(function (a) {
+                a.addEventListener('click', function () {
+                    navbar.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
