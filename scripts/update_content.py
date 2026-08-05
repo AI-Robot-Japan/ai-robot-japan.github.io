@@ -46,8 +46,21 @@ def now_iso():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def parse_member_count(html):
+    """connpassグループページのサイドバーからメンバー数を取り出す。"""
+    m = re.search(
+        r'participation/"[^>]*>\D{0,3}<span[^>]*>([0-9,]+)</span>', html)
+    if not m:
+        return None
+    try:
+        return int(m.group(1).replace(",", ""))
+    except ValueError:
+        return None
+
+
 def fetch_events():
     html = http_get(CONNPASS_GROUP_URL)
+    members = parse_member_count(html)
     event_urls = sorted(set(re.findall(
         r"https://ai-robot-japan\.connpass\.com/event/\d+/", html)))
 
@@ -78,7 +91,12 @@ def fetch_events():
         })
 
     events.sort(key=lambda e: e["started_at"] or "", reverse=True)
-    return {"generated_at": now_iso(), "total": len(events), "events": events}
+    return {
+        "generated_at": now_iso(),
+        "members": members,
+        "total": len(events),
+        "events": events,
+    }
 
 
 def fetch_podcast_from_api():
