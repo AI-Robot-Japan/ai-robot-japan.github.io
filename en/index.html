@@ -79,7 +79,7 @@
             </div>
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-number">650<small>+</small></span>
+                    <span class="stat-number" id="stat-members">650<small>+</small></span>
                     <span class="stat-label">connpass members</span>
                 </div>
                 <div class="stat">
@@ -415,6 +415,11 @@
             events.forEach((event) => {
                 container.appendChild(createContentItem(event, { showStatus: true }));
             });
+
+            const statMembers = document.getElementById('stat-members');
+            if (statMembers && Number.isFinite(data.members)) {
+                statMembers.textContent = data.members;
+            }
         }
 
         async function renderPodcast(container) {
