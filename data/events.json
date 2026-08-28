@@ -1,7 +1,13 @@
 {
-  "generated_at": "2026-08-27T00:26:38+00:00",
-  "total": 5,
+  "generated_at": "2026-08-28T05:06:06+00:00",
+  "total": 6,
   "events": [
+    {
+      "title": "社会実装に向けたPhysical AIの現在と今後の展開",
+      "url": "https://ai-robot-japan.connpass.com/event/405040/",
+      "image": "https://media.connpass.com/thumbs/e6/fe/e6fe069e5055b4723c35d058587b836e.png",
+      "started_at": "2026-09-02T16:30:00+09:00"
+    },
     {
       "title": "AIロボット持ち込み勉強会in大阪",
       "url": "https://ai-robot-japan.connpass.com/event/400777/",
