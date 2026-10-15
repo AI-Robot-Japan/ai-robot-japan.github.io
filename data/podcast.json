@@ -1,8 +1,14 @@
 {
-  "generated_at": "2026-10-14T23:40:53+00:00",
+  "generated_at": "2026-10-15T23:32:32+00:00",
   "source": "rss",
-  "total": 15,
+  "total": 16,
   "episodes": [
+    {
+      "title": "#16　AWSはなぜコミュニティに投資するのか — フロンティアAIチームが見るフィジカルAIの現在地",
+      "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/16-AWS--AIAI-e3qhq0i",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6798db28d4ccd526a242536d",
+      "release_date": "2026-10-15"
+    },
     {
       "title": "#15 ジャパン・アズ・ナンバーワンから失われた30年、フィジカルAIで取り戻す勝ち筋",
       "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/15-30AI-e3m3ul9",
@@ -56,12 +62,6 @@
       "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/7-AI-e3jtjfd",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6798db28d4ccd526a242536d",
       "release_date": "2026-06-04"
-    },
-    {
-      "title": "#6 フィジカルAIで日本は勝てるのか —— 基盤モデルと現場の戦い方",
-      "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/6-AI-e3i1h22",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6798db28d4ccd526a242536d",
-      "release_date": "2026-05-28"
     }
   ]
 }
