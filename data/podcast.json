@@ -1,8 +1,14 @@
 {
-  "generated_at": "2026-10-30T00:36:32+00:00",
+  "generated_at": "2026-10-31T00:21:33+00:00",
   "source": "rss",
-  "total": 17,
+  "total": 18,
   "episodes": [
+    {
+      "title": "#18 AWSがフィジカルAIで描く未来 — ハード、エッジ、そして安全性をどう設計するか",
+      "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/18-AWSAI-e3qhq4n",
+      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6798db28d4ccd526a242536d",
+      "release_date": "2026-10-29"
+    },
     {
       "title": "#17 AWSのフィジカルAI開発プログラムと5つのピラー 、「データが足りない」にどう向き合うか",
       "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/17-AWSAI5-e3qhq35",
@@ -56,12 +62,6 @@
       "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/9-AI-e3jtjj1",
       "image": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6798db28d4ccd526a242536d",
       "release_date": "2026-06-18"
-    },
-    {
-      "title": "#8 Forcesteed Roboticsが仕掛ける4つのプロダクトと好奇心AI",
-      "url": "https://podcasters.spotify.com/pod/show/ai-robot-japan/episodes/8-Forcesteed-Robotics4AI-e3jtjgs",
-      "image": "https://image-cdn-fa.spotifycdn.com/image/ab67656300005f1f6798db28d4ccd526a242536d",
-      "release_date": "2026-06-11"
     }
   ]
 }
