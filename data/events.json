@@ -1,54 +1,5 @@
 {
-  "generated_at": "2026-11-13T01:39:51+00:00",
-  "total": 8,
-  "events": [
-    {
-      "title": "フィジカルAI勉強会 in沖縄",
-      "url": "https://ai-robot-japan.connpass.com/event/410674/",
-      "image": "https://media.connpass.com/thumbs/98/1d/981d5d0c82fe57661a4b8d1c51306728.png",
-      "started_at": "2026-12-03T14:00:00+09:00"
-    },
-    {
-      "title": "AIロボット持ち込み勉強会in札幌",
-      "url": "https://ai-robot-japan.connpass.com/event/405671/",
-      "image": "https://media.connpass.com/thumbs/77/41/77410fe0b6631cf906e8249078093b25.png",
-      "started_at": "2026-10-16T14:00:00+09:00"
-    },
-    {
-      "title": "社会実装に向けたPhysical AIの現在と今後の展開",
-      "url": "https://ai-robot-japan.connpass.com/event/405040/",
-      "image": "https://media.connpass.com/thumbs/18/ab/18ab3ce57502500acec5c9fb7962cf82.png",
-      "started_at": "2026-09-01T16:30:00+09:00"
-    },
-    {
-      "title": "AIロボット持ち込み勉強会in大阪",
-      "url": "https://ai-robot-japan.connpass.com/event/400777/",
-      "image": "https://media.connpass.com/thumbs/4f/bb/4fbbedb990013254db9af7c1ad2a1c8a.png",
-      "started_at": "2026-08-20T14:00:00+09:00"
-    },
-    {
-      "title": "ロボット実機デモ講習会 〜VLA・強化学習技術の最前線〜",
-      "url": "https://ai-robot-japan.connpass.com/event/392659/",
-      "image": "https://media.connpass.com/thumbs/af/1c/af1c9a499d813f95d7b8d3a0a9df794c.png",
-      "started_at": "2026-06-29T14:00:00+09:00"
-    },
-    {
-      "title": "AIロボット持ち込み勉強会@STATION Ai",
-      "url": "https://ai-robot-japan.connpass.com/event/394626/",
-      "image": "https://media.connpass.com/thumbs/93/08/930854370f7cda358517d57b2cb8ef61.png",
-      "started_at": "2026-06-22T14:00:00+09:00"
-    },
-    {
-      "title": "NVIDIA GTC 2026 Recap",
-      "url": "https://ai-robot-japan.connpass.com/event/388141/",
-      "image": "https://media.connpass.com/thumbs/65/14/6514860950459c1a89fb4a33387ca912.png",
-      "started_at": "2026-03-26T12:00:00+09:00"
-    },
-    {
-      "title": "AIロボット持ち込み勉強会",
-      "url": "https://ai-robot-japan.connpass.com/event/384612/",
-      "image": "https://media.connpass.com/thumbs/8a/99/8a990f802ead6e9cc0baea6b3c6413d7.png",
-      "started_at": "2026-03-16T18:30:00+09:00"
-    }
-  ]
+  "generated_at": "2026-11-14T01:17:01+00:00",
+  "total": 0,
+  "events": []
 }
